@@ -28,6 +28,14 @@ cd apps/todos
 nx serve
 ```
 
+3. Runing tests
+
+- Navigate to app./lib dir and run
+
+```sh
+nx test
+```
+
 #### Login Details
 
 | username | password   |
