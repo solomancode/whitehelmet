@@ -1,0 +1,17 @@
+<lib-modal [open]="openEditForm()" (onClose)="closeEditForm()">
+  @if (todo()) {
+  <lib-todo-edit-form
+    [todo]="todo()!.todo"
+    [completed]="todo()!.completed"
+    [id]="todo()!.id"
+    [userId]="todo()!.userId"
+    (onSave)="save($event)"
+  ></lib-todo-edit-form>
+  } @else {
+  <lib-loader></lib-loader>
+  }
+</lib-modal>
+
+<lib-modal [open]="openCreateForm()" (onClose)="closeCreateForm()">
+  <lib-todo-create-form (onSave)="create($event)"></lib-todo-create-form>
+</lib-modal>

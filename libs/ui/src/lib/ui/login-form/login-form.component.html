@@ -1,0 +1,31 @@
+<section class="container">
+  <h1>Todos+</h1>
+  <form class="form" [formGroup]="form" (submit)="onSubmit()">
+    <mat-form-field class="field">
+      <mat-label>username</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="username"
+        placeholder="username"
+      />
+      @if (form.get('username')?.hasError('minlength')) {
+      <mat-error> Minimum 4 characters </mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field class="field">
+      <mat-label>password</mat-label>
+      <input
+        type="password"
+        matInput
+        formControlName="password"
+        placeholder="password"
+      />
+      @if (form.get('password')?.hasError('minlength')) {
+      <mat-error> Minimum 4 characters </mat-error>
+      }
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Login</button>
+  </form>
+</section>

@@ -1,0 +1,23 @@
+<form [formGroup]="form" class="form" (submit)="onSubmit()">
+  <lib-props
+    [props]="[
+      { key: 'Id', value: id() },
+      { key: 'User Id', value: userId() }
+    ]"
+  ></lib-props>
+
+  <mat-form-field class="todo">
+    <mat-label>Todo</mat-label>
+    <textarea
+      matInput
+      formControlName="todo"
+      placeholder="enter todo details"
+    ></textarea>
+    <mat-error *ngIf="form.get('todo')?.hasError('minlength')">
+      Minimum 4 characters
+    </mat-error>
+  </mat-form-field>
+
+  <mat-checkbox formControlName="completed">Completed</mat-checkbox>
+  <button mat-raised-button color="primary" type="submit">Save</button>
+</form>

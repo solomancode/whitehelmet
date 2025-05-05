@@ -1,0 +1,15 @@
+<section class="nav">
+  <header>Todo+</header>
+  <section class="content">
+    <ng-content></ng-content>
+  </section>
+  <button type="button" class="new-todo" (click)="createTodo()">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="create new todo"
+      fontIcon="edit_note"
+    ></mat-icon>
+    Create
+  </button>
+  <section class="user">{{ username() }}</section>
+</section>

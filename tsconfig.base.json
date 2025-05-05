@@ -14,7 +14,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@todos/api": ["libs/api/src/index.ts"],
+      "@todos/auth": ["libs/auth/src/index.ts"],
+      "@todos/local-storage": ["libs/local-storage/src/index.ts"],
+      "@todos/ui": ["libs/ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

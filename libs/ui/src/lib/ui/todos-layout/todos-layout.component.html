@@ -1,0 +1,75 @@
+<section class="container" [class.compact]="compact()">
+  @if (compact()) {
+  <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+    <mat-button-toggle
+      [checked]="active() === 'todos'"
+      (click)="active.set('todos')"
+      >Todos</mat-button-toggle
+    >
+    <mat-button-toggle
+      value="completed"
+      [checked]="active() === 'completed'"
+      (click)="active.set('completed')"
+      >Completed</mat-button-toggle
+    >
+  </mat-button-toggle-group>
+  }
+  <section class="columns">
+    <section
+      cdkDropList
+      class="column"
+      [class.hidden]="active() !== 'todos'"
+      #todoList="cdkDropList"
+      [cdkDropListConnectedTo]="[completedList]"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <span class="count">Todos: {{ todos().length }}</span>
+      <cdk-virtual-scroll-viewport
+        itemSize="20"
+        [style.height]="height() + 'px'"
+      >
+        <lib-todo
+          cdkDrag
+          *cdkVirtualFor="let todo of todos()"
+          [id]="todo.id"
+          [attr.data-todo-id]="todo.id"
+          [attr.data-list]="'todos'"
+          [todo]="todo.todo"
+          [completed]="todo.completed"
+          (onToggleCompleted)="
+            onToggleCompleted.emit({ id: todo.id, list: 'todos' })
+          "
+          (onOpenTodo)="onOpenTodo.emit(todo.id)"
+        ></lib-todo>
+      </cdk-virtual-scroll-viewport>
+    </section>
+    <section
+      cdkDropList
+      class="column"
+      [class.hidden]="active() !== 'completed'"
+      #completedList="cdkDropList"
+      [cdkDropListConnectedTo]="[todoList]"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <span class="count">Completed: {{ completed().length }}</span>
+      <cdk-virtual-scroll-viewport
+        itemSize="20"
+        [style.height]="height() + 'px'"
+      >
+        <lib-todo
+          cdkDrag
+          *cdkVirtualFor="let todo of completed()"
+          [id]="todo.id"
+          [todo]="todo.todo"
+          [attr.data-todo-id]="todo.id"
+          [attr.data-list]="'completed'"
+          [completed]="todo.completed"
+          (onToggleCompleted)="
+            onToggleCompleted.emit({ id: todo.id, list: 'completed' })
+          "
+          (onOpenTodo)="onOpenTodo.emit(todo.id)"
+        ></lib-todo>
+      </cdk-virtual-scroll-viewport>
+    </section>
+  </section>
+</section>

@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Roboto';
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --nav-height: 30px;
+  --todo-width: 400px;
+}
+
+@media (max-width: 400px) {
+  :root {
+    --todo-width: 350px;
+  }
+}

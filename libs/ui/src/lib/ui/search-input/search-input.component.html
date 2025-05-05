@@ -1,0 +1,17 @@
+<section class="container">
+  <input
+    class="search-input"
+    placeholder="search"
+    type="text"
+    [formControl]="value"
+    (input)="search()"
+  />
+  <button class="clear-btn" type="button" (click)="reset()">
+    <mat-icon
+      class="clear-icon"
+      aria-hidden="false"
+      aria-label="clear"
+      fontIcon="backspace"
+    ></mat-icon>
+  </button>
+</section>

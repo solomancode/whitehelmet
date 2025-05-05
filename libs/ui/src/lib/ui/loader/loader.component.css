@@ -1,0 +1,13 @@
+.spinner {
+  display: inline-flex;
+  align-items: center;
+  background: #e3ecff;
+  padding: 4px;
+  border-radius: 3px;
+}
+
+.msg {
+  margin: 0 0.5em;
+  color: #425a8a;
+  font-size: 0.9em;
+}

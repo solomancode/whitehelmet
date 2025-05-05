@@ -1,0 +1,25 @@
+.container {
+  position: relative;
+}
+
+.search-input {
+  height: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  padding: 0 1em;
+  background: #eee;
+}
+
+.clear-btn {
+  background: none;
+  border: none;
+  position: absolute;
+  right: 0;
+}
+
+.clear-icon {
+  font-size: 2em;
+  color: #333;
+  padding: 0 4px;
+}

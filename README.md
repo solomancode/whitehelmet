@@ -1,101 +1,144 @@
-# Whitehelmet
+# Todos+
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+### Prerequisites
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+1. [Node.js v22](https://nodejs.org/en)
+2. [Yarn Package Manager](https://yarnpkg.com/)
+3. [Nx CLI](https://nx.dev/)
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+### Starter Guide
 
-## Run tasks
-
-To run the dev server for your app, use:
-
-```sh
-npx nx serve todos
-```
-
-To create a production bundle:
+1. Clone repository
 
 ```sh
-npx nx build todos
+git clone git@github.com:solomancode/whitehelmet.git
 ```
 
-To see all available targets to run for a project, run:
+2. Install dependencies
 
 ```sh
-npx nx show project todos
+cd whitehelmet
+yarn install
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
-
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Add new projects
-
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-Use the plugin's generator to create new projects.
-
-To generate a new application, use:
+3. Run todos app
 
 ```sh
-npx nx g @nx/angular:app demo
+cd apps/todos
+nx serve
 ```
 
-To generate a new library, use:
+#### Login Details
+
+| username | password   |
+| -------- | ---------- |
+| emilys   | emilyspass |
+
+### Troubleshooting
+
+> Error: ENOSPC: System limit for number of file watchers reached
 
 ```sh
-npx nx g @nx/angular:lib mylib
+sudo sysctl fs.inotify.max_user_watches=524288
 ```
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+#### Does the application meet all specified requirements?
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- [x] Implement login functionality
+- [x] Use Angular's HttpClient to communicate with a backend API
+- [x] Use route guards to protect routes that require authentication.
+- [x] Display the Todo list for the logged-in user.
+- [x] Use Angular Material components for a polished UI.
+- [x] Create a dedicated route to view detailed information about a specific task
+- [x] Display task attributes
+- [x] Task Creation, Editing and Delete
+- [x] Provide forms for creating new Todos
+- [x] Provide forms for editing existing ones.
+- [x] Include validation for required field
+- [x] Use the Angular Component Dev Kit (CDK) to implement drag-and-drop
+- [x] Allow users to change task status by dragging tasks between columns
+- [x] Use NgRx, Angular Signals, or Behavioural subject to manage the application state.
+- [x] Define actions, reducers, and effects to handle task data and user authentication state.
+- [x] Ensure state updates are efficient and predictable.
+- [x] Use the latest Angular version (as of assignment time).
+- [x] Follow a modular architecture with feature module.
+- [x] Implement services for API communication (e.g., UserService).
+- [x] Ensure a responsive and accessible design.
+- [x] Include intuitive navigation with Angular Router.
+- [x] Show loading indicators during API calls.
+- [x] Create a login page using the api/login API.
+- [x] Store the JWT token securely (e.g., session storage).
+- [x] Restrict access to certain routes based on authentication.
+- [x] Handle API errors gracefully and display meaningful messages.
+- [x] Validate forms for required fields and proper formats.
+- [x] Use lazy loading for improved performance.
+- [x] Create a mobile-friendly design with responsiveness in mind.
+- [x] Use Angular animations for a smooth user experience.
+- [x] Use TypeScript features like interfaces and enums to define data models
 
-## Set up CI!
+- **Bonus Requirements**
+- [x] Add unit tests for critical components and services.
+- [x] Cover key functionality and edge cases in the tests.
 
-### Step 1
+---
 
-To connect to Nx Cloud, run the following command:
+### Due to time constraints, The following points might need further improvements:
 
-```sh
-npx nx connect
-```
+1. **Use Angular animations for a smooth user experience.**
 
-Connecting to Nx Cloud ensures a [fast and scalable CI](https://nx.dev/ci/intro/why-nx-cloud?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) pipeline. It includes features such as:
+Might need to add custom animations on top of Angular components built-in animations
 
-- [Remote caching](https://nx.dev/ci/features/remote-cache?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task distribution across multiple machines](https://nx.dev/ci/features/distribute-task-execution?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Automated e2e test splitting](https://nx.dev/ci/features/split-e2e-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task flakiness detection and rerunning](https://nx.dev/ci/features/flaky-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+2. **Task Creation, Editing and Delete**
 
-### Step 2
+Task creation and editing has been implemented, Delete can be implemented by extending api service and modifying TodoComponent ui for todo deletion
 
-Use the following command to configure a CI workflow for your workspace:
+3. **Define actions, reducers, and effects to handle task data and user authentication state**
 
-```sh
-npx nx g ci-workflow
-```
+Most of the required key features for handling user auth is implemented using services and signals. Auto-login and Auto-refresh token can be implemented by extending auth lib. and the provided http interceptor.
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+4. **PI Integration: Correct and efficient integration of APIs, and Implementation of pagination, sorting, and filtering**
 
-## Install Nx Console
+Loading, editing, creating and filtering todos are implemented but sorting and pagination can be implemented by extending api service to fetch specific pages, fetch sorted and ui components for infinite scrolling and sorting controls
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+---
 
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+#### Is the code clean, well-organized, and following Angular best practices?
 
-## Useful links
+Yes, Api, auth, local-storage, and ui functionality are separated into 4 different libraries and consumed by todos app
 
-Learn more:
+#### Is the application structured in a scalable and maintainable way?
 
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+Yes, Each of the mentioned libraries can be extended for future requirements
 
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+#### Performance: Does the application perform efficiently, especially with large task lists?
+
+Yes, A virtual list was used and tested to smoothely render up-to 1e5 todos
+
+#### UI/UX and Accessibility: Ensure responsive design, maintain theme consistency, and create a visually appealing and accessible user interface.
+
+Yes, Basic responsive styling was implemented but might need testing on different devices
+
+#### API Integration: Correct and efficient integration of APIs, and Implementation of pagination, sorting, and filtering.
+
+Mostly yes, Review previous section point 4.
+
+#### Security (bonus): Are common vulnerabilities prevented?
+
+Only input validation and built-in angular security measures. **Can be improved**
+
+#### Testing (bonus): Are there sufficient tests to ensure correctness?
+
+Yes.14 tests covering critical features
+
+![Todos Test](./imgs/test_01.png)
+![Todos Test](./imgs/test_02.png)
+
+#### Documentation: Is the setup process clear and well-documented?
+
+Refer to section 1
+
+### Additional Notes
+
+This is one way of building a Todo app, and it isn't necessarily the perfect way. Depending on the circumstances, I would build it using different approaches.
+
+👋 Thank you.

@@ -1,0 +1,18 @@
+.props {
+  display: flex;
+  flex-direction: column;
+}
+
+.prop {
+  display: flex;
+  min-width: 2em;
+  background: #eee;
+  padding: 4px;
+  border-radius: 4px;
+  margin-bottom: 2px;
+  font-size: 0.9em;
+}
+
+.key {
+  min-width: 10em;
+}

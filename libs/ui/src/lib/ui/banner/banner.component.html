@@ -1,0 +1,7 @@
+<section class="container">
+  @if (loading()){
+  <lib-loader></lib-loader> } @else { {{ count() }} changes hasn't been saved }
+  <button class="btn" type="button" (click)="onApply.emit()">
+    {{ loading() ? 'Loading' : 'Apply' }}
+  </button>
+</section>

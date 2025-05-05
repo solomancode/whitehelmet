@@ -1,0 +1,16 @@
+<form class="form" [formGroup]="form" (submit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Todo</mat-label>
+    <textarea
+      matInput
+      formControlName="todo"
+      placeholder="enter todo details"
+    ></textarea>
+    @if (form.get('todo')?.hasError('minlength')) {
+    <mat-error> Minimum 4 characters </mat-error>
+    }
+  </mat-form-field>
+
+  <mat-checkbox formControlName="completed">Completed</mat-checkbox>
+  <button mat-raised-button color="primary" type="submit">Create</button>
+</form>

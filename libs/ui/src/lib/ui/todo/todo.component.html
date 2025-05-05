@@ -1,0 +1,14 @@
+<mat-card appearance="outlined" class="card">
+  <mat-card-content class="container">
+    <mat-checkbox [checked]="completed()" (change)="toggleCompleted()">
+    </mat-checkbox>
+    <span class="text">{{ todo() }}</span>
+    <button class="btn" type="button" (click)="openTodo()">
+      <mat-icon
+        aria-hidden="false"
+        aria-label="todo details"
+        fontIcon="chevron_right"
+      ></mat-icon>
+    </button>
+  </mat-card-content>
+</mat-card>

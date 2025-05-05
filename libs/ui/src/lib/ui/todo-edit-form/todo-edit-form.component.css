@@ -1,0 +1,9 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.todo {
+  min-width: 30em;
+}

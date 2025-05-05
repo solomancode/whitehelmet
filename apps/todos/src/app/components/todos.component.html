@@ -1,0 +1,26 @@
+<lib-nav (onCreateTodo)="createTodo()" [username]="username()">
+  <lib-search-input
+    (onSearch)="todos.setFilterTerm($event)"
+    (onReset)="todos.resetFilter()"
+  ></lib-search-input>
+</lib-nav>
+
+<router-outlet></router-outlet>
+
+@if (todos.actions().length) {
+<lib-banner
+  [count]="todos.actions().length"
+  [loading]="todos.processingActions()"
+  (onApply)="todos.applyActions()"
+></lib-banner>
+
+}
+
+<lib-todos-layout
+  [compact]="compact()"
+  (onToggleCompleted)="toggle($event)"
+  (onOpenTodo)="openTodo($event)"
+  [todos]="withFilter(todos.todos().todos)"
+  [completed]="withFilter(todos.todos().completed)"
+>
+</lib-todos-layout>
