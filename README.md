@@ -28,7 +28,7 @@ cd apps/todos
 nx serve
 ```
 
-3. Runing tests
+4. Runing tests
 
 - Navigate to app./lib dir and run
 
